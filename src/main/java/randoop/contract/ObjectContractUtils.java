@@ -36,7 +36,8 @@ public class ObjectContractUtils {
     for (int i = 0; i < vars.length; i++) {
       // See documentation for ObjectContract.toCommentString().
       String pattern = "\\bx" + i + "\\b";
-      str = str.replaceAll(pattern, vars[i].getName());
+      String replacement = java.util.regex.Matcher.quoteReplacement(vars[i].getName());
+      str = str.replaceAll(pattern, replacement);
     }
     return str;
   }
